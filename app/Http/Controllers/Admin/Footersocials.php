@@ -146,7 +146,6 @@ class Footersocials extends Controller
              */
             public function destroy($id)
             {
-              
                $footersocials = Footersocial::find($id);
                if(is_null($footersocials) || empty($footersocials)){
                 return backWithError(trans('admin.undefinedRecord'),"footersocials");
@@ -166,7 +165,6 @@ class Footersocials extends Controller
  			public function multi_delete()
             {
                 $data = request('selected_data');
-                
                 if(is_array($data)){
                     foreach($data as $id)
                     {

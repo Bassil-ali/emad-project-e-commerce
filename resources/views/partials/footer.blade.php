@@ -7,7 +7,7 @@
             <p>
               {{ trans('admin.subscribe_to_our_newsletter') }}
             </p>
-            
+
             <form action="{{ route('newsletter.store') }}" method="post" id="newsletter-form">
               @csrf
               <div class="newsletter-form">
@@ -20,8 +20,8 @@
                   <input type="submit" value="{{ trans('admin.Subscribe') }}" />
               </div>
           </form>
-          
-          
+
+
           </div>
         </div>
       </div>
@@ -77,32 +77,37 @@
             <div
               class="social-links justify-content-md-start justify-content-center"
             >
-              <a href="#">
-                <img src="{{ url('assets') }}/home/img/icons/facebook.svg" alt=""
-              /></a>
-              <a href="#">
-                <img src="{{ url('assets') }}/home/img/icons/youtube.svg" alt=""
-              /></a>
-              <a href="#"> <img src="{{ url('assets') }}/home/img/icons/X.svg" alt="" /></a>
-              <a href="#">
-                <img src="{{ url('assets') }}/home/img/icons/instagram.svg" alt=""
-              /></a>
-              <a href="#">
-                <img src="{{ url('assets') }}/home/img/icons/whatsapp.svg" alt=""
-              /></a>
-              <a href="#">
-                <img src="{{ url('assets') }}/home/img/icons/Snapchat.svg" alt=""
-              /></a>
+                <a href="https://www.facebook.com/share/E2X5qVEGB5bJeeMx/?mibextid=qi2Omg" target="_blank">
+                    <img src="{{ url('assets') }}/home/img/icons/facebook.svg" alt="Facebook" />
+                </a>
+                <a href="https://youtube.com/user/EmadBakeries" target="_blank">
+                    <img src="{{ url('assets') }}/home/img/icons/youtube.svg" alt="YouTube" />
+                </a>
+                <a href="https://twitter.com/ebakeries?s=21" target="_blank">
+                    <img src="{{ url('assets') }}/home/img/icons/X.svg" alt="Twitter" />
+                </a>
+                <a href="https://www.instagram.com/emadbakeries/" target="_blank">
+                    <img src="{{ url('assets') }}/home/img/icons/instagram.svg" alt="Instagram" />
+                </a>
+                <a href="https://wa.me/" target="_blank">
+                    <img src="{{ url('assets') }}/home/img/icons/whatsapp.svg" alt="WhatsApp" />
+                </a>
+                <a href="https://www.snapchat.com/add/emad.bakeries" target="_blank">
+                    <img src="{{ url('assets') }}/home/img/icons/Snapchat.svg" alt="Snapchat" />
+                </a>
+
             </div>
           </div>
           <div
             class="col-md-8 d-flex justify-content-md-between justify-content-center flex-wrap"
           >
-          
+
             <a href="{{ route('about-us') }}">{{ trans('admin.about-us') }}</a>
             <a href="{{ route('categories') }}">{{ trans('admin.products') }}</a>
             <a href="{{ route('blogs') }}">{{ trans('admin.blogs') }}</a>
-            <a href="{{ route('partners') }}">{{ trans('admin.partners') }}</a>
+            <a href="{{ route('be-partner',['partner']) }}">{{ trans('admin.be_partners') }}</a>
+            <a href="{{ route('be-partner',['career']) }}">{{ trans('admin.be_career') }}</a>
+
             <a href="{{ route('gallery') }}">{{ trans('admin.gallery') }}</a>
             <a href="{{ route('branches') }}">{{ trans('admin.branches') }}</a>
           </div>
@@ -128,7 +133,7 @@
             <img src="{{it()->url($item->photo)}}" alt="ff" />
             
             @endforeach
-              
+            
             </div>
           </div>
         </div>

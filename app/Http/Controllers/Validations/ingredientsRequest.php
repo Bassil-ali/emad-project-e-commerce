@@ -25,27 +25,27 @@ class ingredientsRequest extends FormRequest {
 	 */
 	protected function onCreate() {
 		return [
-             'Allergens_ar'=>'',
-             'Allergens_en'=>'',
-             'Calories_per_serving_ar'=>'',
-             'Calories_per_serving_en'=>'',
-             'Barcode'=>'required|',
-             'Size'=>'',
-             'Packing_ar'=>'',
-             'Packing_en'=>'',
+             'Allergens_ar'=>'string',
+             'Allergens_en'=>'string',
+             'Calories_per_serving_ar'=>'string',
+             'Calories_per_serving_en'=>'string',
+             'Barcode'=>'required|string',
+             'Size'=>'string',
+             'Packing_ar'=>'string',
+             'Packing_en'=>'string',
 		];
 	}
 
 	protected function onUpdate() {
 		return [
-             'Allergens_ar'=>'',
-             'Allergens_en'=>'',
-             'Calories_per_serving_ar'=>'',
-             'Calories_per_serving_en'=>'',
-             'Barcode'=>'required|',
-             'Size'=>'',
-             'Packing_ar'=>'',
-             'Packing_en'=>'',
+             'Allergens_ar'=>'string',
+             'Allergens_en'=>'string',
+             'Calories_per_serving_ar'=>'string',
+             'Calories_per_serving_en'=>'string',
+             'Barcode'=>'required|string',
+             'Size'=>'string',
+             'Packing_ar'=>'string',
+             'Packing_en'=>'string',
 		];
 	}
 

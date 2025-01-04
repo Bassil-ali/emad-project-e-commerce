@@ -61,55 +61,45 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.name_ar')}} :</b>
 				{!! $blogs->name_ar !!}
 			</div>
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.name_en')}} :</b>
 				{!! $blogs->name_en !!}
 			</div>
-
-			
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
-				<b>{{trans('admin.first_title_ar')}} :</b>
-				{!! $blogs->title_ar !!}
-			</div>
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
-				<b>{{trans('admin.first_description_ar')}} :</b>
+			<div class="col-md-6 col-lg-6 col-xs-6">
+				<b>{{trans('admin.description_ar')}} :</b>
 				{!! $blogs->description_ar !!}
 			</div>
-
-		
-			
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
+			<div class="col-md-6 col-lg-6 col-xs-6">
+				<b>{{trans('admin.description_en')}} :</b>
+				{!! $blogs->description_en !!}
+			</div>
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.product_url')}} :</b>
 				{!! $blogs->product_url !!}
 			</div>
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
+			<div class="col-md-6 col-lg-6 col-xs-6">
+				<b>{{trans('admin.created_date')}} :</b>
+				{!! $blogs->created_date !!}
+			</div>
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.category_id')}} :</b>
 				@if(!empty($blogs->category_id()->first()))
 			{{ $blogs->category_id()->first()->name_ar }}
 			@endif
 			</div>
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.photo')}} :</b>
 				@include("admin.show_image",["image"=>$blogs->photo])
 			</div>
-
-			<div class="col-md-6 col-lg-6 col-xs-6">
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.cover')}} :</b>
 				@include("admin.show_image",["image"=>$blogs->cover])
 			</div>
-
-			<!-- /.row -->
+			<!-- /.row -->
 		</div>
 	</div>
 	<!-- /.card-body -->

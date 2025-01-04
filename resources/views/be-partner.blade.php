@@ -11,12 +11,20 @@
           data-aos="fade-up"
           data-aos-delay="100"
         >
+        @if (request()->is('*career'))
+        <div class="partners-section">
+          <h2>{{ trans('admin.career') }}</h2>
+          <p>{{ trans('admin.be_career') }}</p>
+          <span>{{ trans('admin.partners_thank_you') }}</span>
+        </div>
+        @endif
+        @if (request()->is('*partner'))
         <div class="partners-section">
           <h2>{{ trans('admin.partners') }}</h2>
           <p>{{ trans('admin.be_partners') }}</p>
           <span>{{ trans('admin.partners_thank_you') }}</span>
         </div>
-        
+        @endif
         </div>
       </div>
 
@@ -31,15 +39,19 @@
         >
         @csrf
             <div class="row gy-4">
-                <div class="col-md-4">
-                    <label for="partner_type">{{ trans('admin.choose_your_type') }}</label>
-                    <select name="partner_type" id="partner_type" class="form-control">
-                        <option value="">{{ trans('admin.choose_your_type') }}</option>
-                        @foreach($PartnerTypes as $type)
-                            <option value="{{ $type['name_'.\L::l()] }}">{{ $type['name_'.\L::l()] }}</option>
-                        @endforeach
-                    </select>
-                </div>
+               
+                  
+                    <input
+                        type="text"
+                        name="partner_type"
+                        hidden
+                        value="{{ request()->is('*career') ? 'career' : 'partner' }}"
+                        class="form-control"
+                        placeholder="{{ trans('admin.enter_full_name') }}"
+                        
+                        
+                    />
+               
                 <div class="col-md-4">
                     <label for="name">{{ trans('admin.full_name') }} *</label>
                     <input
@@ -60,7 +72,8 @@
                         required
                     />
                 </div>
-                <div class="col-md-4">
+                @if (!request()->is('*career'))
+                <div class="col-md-4"  >
                     <label for="business_name">{{ trans('admin.business_name') }}</label>
                     <input
                         type="text"
@@ -69,6 +82,7 @@
                         placeholder="{{ trans('admin.enter_business_name') }}"
                     />
                 </div>
+                @endif
                 <div class="col-md-4">
                     <label for="email">{{ trans('admin.email') }} *</label>
                     <input
@@ -80,7 +94,13 @@
                     />
                 </div>
                 <div class="col-md-4">
+                @if (request()->is('*career'))
                     <label for="cv">{{ trans('admin.attach_cv') }}</label>
+                @endif
+                @if (request()->is('*partner'))
+                    <label for="cv">{{ trans('admin.attach_file') }}</label>
+                @endif
+                
                     <input
                         type="file"
                         name="file"
@@ -95,6 +115,7 @@
                         name="message"
                         rows="6"
                         placeholder="{{ trans('admin.enter_message') }}"
+                        required
                     ></textarea>
                 </div>
                 <div class="col-md-12 text-center d-flex gap-4 justify-content-center align-items-center submit-sec">
@@ -110,7 +131,16 @@
         document.querySelector('.partner-form').addEventListener('submit', function(event) {
             event.preventDefault();
             var form = this;
-            
+            // Show SweetAlert with a loading animation
+        Swal.fire({
+          
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading(); // Start the loading animation
+            }
+        });
+
             // Perform AJAX form submission
             var formData = new FormData(form);
             
@@ -125,7 +155,7 @@
             .then(data => {
                 if (data.success) {
                     Swal.fire({
-                        title: '{{ trans('admin.success') }}',
+                        
                         text: '{{ trans('admin.form_submitted_successfully') }}',
                         icon: 'success',
                         confirmButtonText: 'OK'
@@ -134,7 +164,7 @@
                     });
                 } else {
                     Swal.fire({
-                        title: '{{ trans('admin.error') }}',
+                        
                         text: data.message || '{{ trans('admin.validation_error') }}',
                         icon: 'error',
                         confirmButtonText: 'OK'
@@ -143,7 +173,7 @@
             })
             .catch(error => {
                 Swal.fire({
-                    title: '{{ trans('admin.error') }}',
+                    
                     text: '{{ trans('admin.something_went_wrong') }}',
                     icon: 'error',
                     confirmButtonText: 'OK'

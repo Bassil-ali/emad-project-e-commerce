@@ -26,9 +26,9 @@ class BannersRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'photo'=>'file|'.it()->image().'',
-             'title_en'=>'string',
-             'description_en'=>'string',
-             'action_url'=>'string',
+             'title_en'=>'',
+             'description_en'=>'',
+             'action_url'=>'',
              'title_ar'=>'required',
              'Description_ar'=>'',
 		];
@@ -37,9 +37,9 @@ class BannersRequest extends FormRequest {
 	protected function onUpdate() {
 		return [
              'photo'=>'file|'.it()->image().'',
-             'title_en'=>'string',
-             'description_en'=>'string',
-             'action_url'=>'string',
+             'title_en'=>'',
+             'description_en'=>'',
+             'action_url'=>'',
              'title_ar'=>'required',
              'Description_ar'=>'',
 		];

@@ -61,27 +61,29 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			<div class="col-md-6 col-lg-6 col-xs-6">
+
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.name')}} :</b>
 				{!! $clientsays->name !!}
 			</div>
-			<div class="col-md-6 col-lg-6 col-xs-6">
-				<b>{{trans('admin.titile')}} :</b>
-				{!! $clientsays->titile !!}
-			</div>
-			<div class="col-md-6 col-lg-6 col-xs-6">
+
+	
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.description_ar')}} :</b>
 				{!! $clientsays->description_ar !!}
 			</div>
-			<div class="col-md-6 col-lg-6 col-xs-6">
+
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.description_en')}} :</b>
 				{!! $clientsays->description_en !!}
 			</div>
-			<div class="col-md-6 col-lg-6 col-xs-6">
+
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<b>{{trans('admin.photo')}} :</b>
 				@include("admin.show_image",["image"=>$clientsays->photo])
 			</div>
-			<!-- /.row -->
+
+			<!-- /.row -->
 		</div>
 	</div>
 	<!-- /.card-body -->

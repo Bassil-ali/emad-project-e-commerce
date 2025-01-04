@@ -13,7 +13,7 @@ protected $fillable = [
 		'admin_id',
         'photo',
         'name',
-        'titile',
+       
         'description_ar',
         'description_en',
 		'created_at',

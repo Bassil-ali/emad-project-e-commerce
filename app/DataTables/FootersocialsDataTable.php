@@ -19,12 +19,10 @@ class FootersocialsDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.footersocials.buttons.actions')
-
-            ->addColumn('photo', '<a href="{{ it()->url($photo) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
-
-   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger d-inline ml-2">
-                  <input type="checkbox" class="selected_data"  name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
-                  <label for="selectdata{{ $id }}"></label>
+            ->addColumn('photo', '<a href="{{ it()->url($photo) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
+   		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger d-inline ml-2">
+                  <input type="checkbox" class="selected_data" value="" name="selected_data[]" id="selectdata" value="{{ $id }}" >
+                  <label for="selectdata"></label>
                 </div>')
             ->rawColumns(['checkbox','actions',"photo",]);
     }
@@ -59,6 +57,7 @@ class FootersocialsDataTable extends DataTable
                 'buttons' => [
                     ['extend' => 'print', 'className' => 'btn dark btn-outline', 'text' => '<i class="fa fa-print"></i> '.trans('admin.print')],
                     ['extend' => 'excel', 'className' => 'btn green btn-outline', 'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_excel')],
+                    ['extend' => 'pdf', 'className' => 'btn red btn-outline', 'text' => '<i class="fa fa-file-pdf"> </i> '.trans('admin.export_pdf')],
                     ['extend' => 'csv', 'className' => 'btn purple btn-outline', 'text' => '<i class="fa fa-file-excel"> </i> '.trans('admin.export_csv')],
                     ['extend' => 'reload', 'className' => 'btn blue btn-outline', 'text' => '<i class="fa fa-sync-alt"></i> '.trans('admin.reload')],
                     [

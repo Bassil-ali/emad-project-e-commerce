@@ -75,23 +75,7 @@
             <div class="text-center">
                 <a href="{{ aurl('login') }}">{{trans('admin.or_sign_different_user')}}</a>
             </div>
-            <div class="text-center">
-                @if(count(L::all()) > 0)
-                <hr />
-                <center>
-                @php
-                $i = 0;
-                @endphp
-                @foreach(L::all() as $lang)
-                <a style="color:{{ app('l') == $lang?'#c33':'#343a40' }}" href="{{ aurl('lang/'.$lang) }}">{{ trans('admin.'.$lang) }}</a>
-                @php
-                $i++;
-                @endphp
-                {{ $i < count(L::all()) ?'.':'' }}
-                @endforeach
-                </center>
-                @endif
-            </div>
+          
         </div>
         <!-- /.center -->
         <!-- jQuery -->

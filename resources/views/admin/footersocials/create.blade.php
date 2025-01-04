@@ -43,12 +43,6 @@
     </div>
 </div>
 
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        <label for="url" class=" control-label">{{trans('admin.url')}}</label>
-            <input type="text" id="url" name="url" value="{{old('url')}}" class="form-control" placeholder="{{trans('admin.url')}}" />
-    </div>
-</div>
 
 </div>
 		<!-- /.row -->

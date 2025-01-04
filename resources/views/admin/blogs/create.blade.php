@@ -42,14 +42,14 @@
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-	<div class="form-group">
-				<label for="category_id">{{trans('admin.category_id')}}</label>
-							<select id="category_id" name="category_id" class="form-control select2" placeholder="{{trans('admin.category_id')}}" >
+    <div class="form-group">
+                <label for="category_id">{{trans('admin.category_id')}}</label>
+                            <select id="category_id" name="category_id" class="form-control select2" placeholder="{{trans('admin.category_id')}}" >
     @foreach(App\Models\Category::get() as $category_id)
       <option value="{{ $category_id->id }}" {{old('category_id') == $category_id->id?'selected':''}}>{{ $category_id->name_ar }}</option>
     @endforeach
    </select>
-	</div>
+    </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
@@ -73,7 +73,6 @@
             name="description_ar" >{{old('description_ar')}}</textarea>
     </div>
 </div>
-
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
         <label for="description_en" class="control-label">{{trans('admin.description_en')}}</label>
@@ -81,11 +80,18 @@
             name="description_en" >{{old('description_en')}}</textarea>
     </div>
 </div>
-
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
         <label for="product_url" class=" control-label">{{trans('admin.product_url')}}</label>
             <input type="text" id="product_url" name="product_url" value="{{old('product_url')}}" class="form-control" placeholder="{{trans('admin.product_url')}}" />
+    </div>
+</div>
+
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <div class="form-group">
+        <label for="product_url" class=" control-label">{{trans('admin.created_date')}}</label>
+            <input type="datetime-local" id="created_date" name="created_date" value="{{old('created_date')}}" class="form-control" placeholder="{{trans('admin.created_date')}}" />
     </div>
 </div>
 

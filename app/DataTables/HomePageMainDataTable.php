@@ -3,6 +3,7 @@ namespace App\DataTables;
 use App\Models\HomePage;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [It V 1.6.8 | https://it.phpanonymous.com]
 // Copyright Reserved [It V 1.6.8 | https://it.phpanonymous.com]
@@ -19,7 +20,12 @@ class HomePageMainDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.homepagemain.buttons.actions')
-
+            ->editColumn('description_ar', function ($row) {
+				return Str::limit($row->description_ar, 50); // Truncate to 50 characters
+			})
+			->editColumn('description_en', function ($row) {
+				return Str::limit($row->description_en, 50); // Truncate to 50 characters
+			})
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger d-inline ml-2">
            <input type="checkbox" class="selected_data"  name="selected_data[]" id="selectdata{{ $id }}" value="{{ $id }}" >
            <label for="selectdata{{ $id }}"></label>

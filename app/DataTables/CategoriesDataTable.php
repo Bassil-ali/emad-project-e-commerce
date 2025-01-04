@@ -3,6 +3,7 @@ namespace App\DataTables;
 use App\Models\Category;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [It V 1.6.8 | https://it.phpanonymous.com]
 // Copyright Reserved [It V 1.6.8 | https://it.phpanonymous.com]
@@ -19,6 +20,12 @@ class CategoriesDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.categories.buttons.actions')
+			->editColumn('description_ar', function ($row) {
+				return Str::limit($row->description_ar, 50); // Truncate to 50 characters
+			})
+			->editColumn('description_en', function ($row) {
+				return Str::limit($row->description_en, 50); // Truncate to 50 characters
+			})
 
             ->addColumn('photo', '<a href="{{ it()->url($photo) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')
 

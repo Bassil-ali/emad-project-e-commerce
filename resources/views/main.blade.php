@@ -5,7 +5,7 @@
    <section class="creative-fullpage--slider pt-0" id="hero">
     <div class="banner-horizental">
       <div class="swiper swiper-container-h">
-     
+
           <div class="swiper-wrapper">
             @foreach($banners as $banner)
                 <div class="swiper-slide">
@@ -13,13 +13,14 @@
                         <div class="img">
                             <img src="{{it()->url($banner->photo)}}" alt="full_screen-image" />
                         </div>
-                        <div class="swiper-content" data-swiper-parallax="2000">
+                        <div class="swiper-content" data-swiper-parallax="2000" style="padding-right: {{ \L::l() === 'ar' ? '100px' : '20px' }}; text-align: {{ \L::l() === 'ar' ? 'right' : 'left' }};">
+                            @if($banner->title_ar != NULL || $banner->title_ar != '')
                             <div class="title-area">
                                 <a href="{{ $banner->action_url }}" class="title">
                                     {{ \L::l() === 'ar' ? $banner->title_ar : $banner->title_en }}
                                 </a>
                             </div>
-                            <p class="disc">
+                            <p class="disc" style="direction: {{ \L::l() === 'ar' ? 'rtl' : 'ltr' }};">
                               {!! $banner['description_' . \L::l()] !!}
                             </p>
                             <div class="creative-btn--wrap">
@@ -37,33 +38,37 @@
                                             </div>
                                         </div>
                                     </div>
-        
+
                                     <div class="creative-btn--label">
                                         <div class="creative-btn__text">{{trans('admin.See More')}}</div>
                                         <div class="creative-btn__border"></div>
                                     </div>
                                 </a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        
-        <div class="swiper-button-wrapper creative-button--wrapper">
-          <i
-            class="bi bi-chevron-right swiper-button-next"
-            tabindex="0"
-            role="button"
-            aria-label="Next slide"
-          ></i>
-          <i
-            class="bi bi-chevron-left swiper-button-prev"
-            tabindex="0"
-            role="button"
-            aria-label="Previous slide"
-          ></i>
-        </div>
+
+        <div
+  class="swiper-button-wrapper creative-button--wrapper"
+  style="{{ app()->getLocale() == 'ar' ? 'direction: rtl;' : 'direction: ltr;' }}">
+  <i
+    class="bi bi-chevron-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} swiper-button-next"
+    tabindex="0"
+    role="button"
+    aria-label="Next slide"
+  ></i>
+  <i
+    class="bi bi-chevron-{{ app()->getLocale() == 'ar' ? 'right' : 'left' }} swiper-button-prev"
+    tabindex="0"
+    role="button"
+    aria-label="Previous slide"
+  ></i>
+</div>
+
       <!--   <div class="slider-pagination-area">
           <h5 class="slide-range one">01</h5>
           <div
@@ -88,7 +93,10 @@
   <!-- Clients Section -->
   <section id="clients" class="clients section text-center">
     <div class="container" data-aos="fade-up">
-      <h2>{{ trans('admin.trusted_by') }}</h2>
+    <div class="container section-title" data-aos="fade-up">
+        <h2>{{ trans('admin.trusted_by') }}</h2>
+        <p>{{ trans('admin.most_trusted_by') }}</p>
+    </div>
 
         <div class="swiper init-swiper mt-4">
             <script type="application/json" class="swiper-config">
@@ -155,7 +163,7 @@
                     <div class="serve-item position-relative">
                         <div class="img">
                             <img
-                                src="{{ it()->url($industry->photo) }}" 
+                                src="{{ it()->url($industry->photo) }}"
                                 loading="lazy"
                                 class="img-fluid"
                                 alt="{{ $industry->{'title_' . app()->getLocale()} }}"
@@ -163,7 +171,7 @@
                         </div>
                         <div class="details">
                             <a href="#" class="stretched-link">
-                                <h3>{{ $industry->{'title_' . app()->getLocale()} }}</h3> 
+                                <h3>{{ $industry->{'title_' . app()->getLocale()} }}</h3>
                             </a>
                         </div>
                     </div>
@@ -176,27 +184,34 @@
 
   <!-- / End Services Section -->
 
-  <!-- Video Section -->
-  <section class="intro-video-area section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="inner-content-head" data-aos="fade-up">
-            <div class="inner-content">
-              <div class="custom-video-wrapper">
-                <iframe
-                  class="embed-responsive-item"
-                  src="https://www.youtube.com/embed/dqAqetWcpJo?si=PLuWbTiuo_zekynx"
-                  allowfullscreen
-                ></iframe>
-              </div>
+ <!-- Video Section -->
+<section class="intro-video-area section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="inner-content-head" style="padding-right: 2%;" data-aos="fade-up">
+          <div class="inner-content">
+            <div class="custom-video-wrapper">
+              <video 
+                
+                src="{{ it()->url($vedio->vedio) }}" 
+                autoplay 
+                controls 
+                loop
+                muted
+                style="width: 100% !important; height: 560px;"
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Video Section -->
+  </div>
+</section>
+<!-- End Video Section -->
+
 
   <!-- products Section -->
   <section class="products-sec section">
@@ -215,7 +230,7 @@
                       <img
                           src="{{ it()->url($product->main_photo) }}"
                           class="img-fluid"
-                          alt="{{ $product->title_en }}"  
+                          alt="{{ $product->title_en }}"
                           loading="lazy"
                       />
                   </div>
@@ -239,7 +254,7 @@
           </a>
       </div>
   </div>
-  
+
   </section>
   <!-- / End products Section -->
 
@@ -399,7 +414,7 @@
               <!-- End testimonial item -->
           @endforeach
       </div>
-      
+
         <div class="swiper-pagination"></div>
       </div>
     </div>

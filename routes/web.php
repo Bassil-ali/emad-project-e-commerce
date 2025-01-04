@@ -83,7 +83,7 @@ Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs');
 Route::get('/blog-details/{id}', [BlogDetailsController::class, 'show'])->name('blog-details');
 
 // Partners
-Route::get('/be-partner', [PartnersController::class, 'bePartner'])->name('be-partner');
+Route::get('/be-partner/{type}', [PartnersController::class, 'bePartner'])->name('be-partner');
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners');
 Route::post('/partner-save', [PartnersController::class, 'store'])->name('partner-save');
 

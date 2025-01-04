@@ -28,7 +28,8 @@ $(document).ready(function(){
 $.widget.bridge('uibutton', $.ui.button);
 });
 </script>
-<!-- DataTables -->
+
+
 <script src="{{url("assets/plugins/datatables/jquery.dataTables.min.js")}}"></script>
 <script src="{{url("assets/plugins/datatables/selecta_all_checkbtn.js")}}"></script>
 <script src="{{url("assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>

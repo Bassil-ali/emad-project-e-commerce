@@ -155,8 +155,15 @@ class Categories extends Controller
                }
                it()->delete('category',$id);
 
+                 // Delete related blogs
+                  $categories->blogs()->delete(); // Delete all related blogs
 
-                $categories->delete();
+                  // Delete related products (if you have a relationship)
+                  $categories->products()->delete(); // Delete all related products
+
+                  // Now delete the category
+                  $categories->delete();
+                
                 return backWithSuccess(trans('admin.deleted'),"categories");
 
             }

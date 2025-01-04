@@ -113,6 +113,8 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 				Route::post('bepartners/multi_delete','Admin\BePartners@multi_delete'); 
 				Route::resource('pcpbs','Admin\pcpbs'); 
 				Route::post('pcpbs/multi_delete','Admin\pcpbs@multi_delete'); 
+				Route::resource('vedios','Admin\vedios'); 
+				Route::post('vedios/multi_delete','Admin\vedios@multi_delete'); 
 				//////// Admin Routes /* End */ //////////////
 	});
 

@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\vedio;
 use Illuminate\Http\Request;
 use App\Models\Footersocial;
 use App\Models\Banner;
@@ -10,7 +11,7 @@ use App\Models\Distributor;
 use App\Models\ServedIndustrie;
 use App\Models\Product;
 use App\Models\Blog;
-use App\Models\pcpb; 
+use App\Models\pcpb;
 use App\Models\ClientSay;
 
 
@@ -34,8 +35,10 @@ class IndexController extends Controller
 
          $clientSays = ClientSay::all();
 
+         $vedio = vedio::first();
+
         // Fetch any data needed for the home page
         return view('main', compact('footerSocials','banners','distributors',
-        'servedIndustries','latestProducts','posts','pcpb','clientSays'));
+        'servedIndustries','latestProducts','posts','pcpb','clientSays','vedio'));
     }
 }

@@ -88,12 +88,18 @@
       <!-- End single column section -->
       
       <div class="text-center d-flex flex-column align-items-center justify-content-center">
-        <h1>New Partner Submission</h1>
-        <p><strong>Partner Type:  </strong> {{ $details['partner_type'] }}</p>
-        <p><strong>Business Name:  </strong> {{ $details['business_name'] }}</p>
+        <h1>New Submission</h1>
+        <p><strong>Type:  </strong> {{ $details['partner_type'] }}</p>
+        <p><strong>Name: </strong> {{ $details['name'] }}</p>
+        @if (!empty($details['business_name']))
+            <p><strong>Business Name: </strong> {{ $details['business_name'] }}</p>
+        @endif
+
         <p><strong>Phone Number:  </strong> {{ $details['phone_number'] }}</p>
         <p><strong>Email Address:  </strong> {{ $details['email_address'] }}</p>
+        @if (!empty($details['file-e']))
         <p><strong> File:</strong> <a href="{{url('storage/'.$details['file-e'])}}" download>Download</a>
+        @endif
         </p>
      </div>
     

@@ -65,7 +65,7 @@
                     alt=""
                     loading="lazy"
                   />
-                  <span class="post-date">{{ \Carbon\Carbon::parse($item->created_at)->format('F j') }}</span>
+                  <span class="post-date">{{ \Carbon\Carbon::parse($item->created_date)->format('F j') }}</span>
                 </div>
 
                 <div class="post-content d-flex flex-column">

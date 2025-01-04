@@ -3,6 +3,7 @@ namespace App\DataTables;
 use App\Models\clientSay;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [It V 1.6.8 | https://it.phpanonymous.com]
 // Copyright Reserved [It V 1.6.8 | https://it.phpanonymous.com]
@@ -19,7 +20,12 @@ class clientSaysDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.clientsays.buttons.actions')
-
+			->editColumn('description_ar', function ($row) {
+				return Str::limit($row->description_ar, 50); // Truncate to 50 characters
+			})
+			->editColumn('description_en', function ($row) {
+				return Str::limit($row->description_en, 50); // Truncate to 50 characters
+			})
             ->addColumn('photo', '{!! view("admin.show_image",["image"=>$photo])->render() !!}')
 
    		->addColumn('created_at', '{{ date("Y-m-d H:i:s",strtotime($created_at)) }}')   		->addColumn('updated_at', '{{ date("Y-m-d H:i:s",strtotime($updated_at)) }}')            ->addColumn('checkbox', '<div  class="icheck-danger d-inline ml-2">
@@ -152,11 +158,7 @@ class clientSaysDataTable extends DataTable
                  'data'=>'name',
                  'title'=>trans('admin.name'),
 		    ],
-				[
-                 'name'=>'titile',
-                 'data'=>'titile',
-                 'title'=>trans('admin.titile'),
-		    ],
+				
 				[
                  'name'=>'description_ar',
                  'data'=>'description_ar',

@@ -49,12 +49,7 @@
             <input type="text" id="name" name="name" value="{{old('name')}}" class="form-control" placeholder="{{trans('admin.name')}}" />
     </div>
 </div>
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
-        <label for="titile" class=" control-label">{{trans('admin.titile')}}</label>
-            <input type="text" id="titile" name="titile" value="{{old('titile')}}" class="form-control" placeholder="{{trans('admin.titile')}}" />
-    </div>
-</div>
+
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
         <label for="description_ar" class="control-label">{{trans('admin.description_ar')}}</label>

@@ -29,11 +29,11 @@ class BlogsRequest extends FormRequest {
              'name_en'=>'required',
              'category_id'=>'required',
              'photo'=>'required|'.it()->image().'',
-       
+            
              'description_ar'=>'required',
-			 'description_en'=>'required',
-           
-             'product_url'=>'string',
+             'description_en'=>'',
+             'product_url'=>'',
+             'created_date'=>'',
 		];
 	}
 
@@ -42,12 +42,12 @@ class BlogsRequest extends FormRequest {
              'name_ar'=>'required',
              'name_en'=>'required',
              'category_id'=>'required',
-             'photo'=>'required|'.it()->image().'',
-              
-             'description_ar'=>'required',
-			 'description_en'=>'required',
+             'photo'=>'',
             
-             'product_url'=>'string',
+             'description_ar'=>'required',
+             'description_en'=>'',
+             'product_url'=>'',
+             'created_date'=>'',
 		];
 	}
 
@@ -69,11 +69,11 @@ class BlogsRequest extends FormRequest {
              'name_en'=>trans('admin.name_en'),
              'category_id'=>trans('admin.category_id'),
              'photo'=>trans('admin.photo'),
-             
-             'description_ar'=>trans('admin.first_description_ar'),
-			 'description_en'=>trans('admin.first_description_en'),
-            
+             'cover'=>trans('admin.cover'),
+             'description_ar'=>trans('admin.description_ar'),
+             'description_en'=>trans('admin.description_en'),
              'product_url'=>trans('admin.product_url'),
+             'created_date'=>trans('admin.created_date'),
 		];
 	}
 

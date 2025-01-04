@@ -61,11 +61,10 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			<div class="col-md-6 col-lg-6 col-xs-6">
-				<b>{{trans('admin.url')}} :</b>
-				{!! $footersocials->url !!}
-			</div>
-			<div class="col-md-6 col-lg-6 col-xs-6">
+
+	
+
+			<div class="col-md-6 col-lg-6 col-xs-6">
 				<div class="row">
 					<div class="col-md-8 col-lg-4 col-xs-12">
 					  <b>{{trans('admin.photo')}} :</b>
@@ -78,7 +77,8 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.row -->
+
+			<!-- /.row -->
 		</div>
 	</div>
 	<!-- /.card-body -->

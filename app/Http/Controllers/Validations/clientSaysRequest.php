@@ -27,7 +27,7 @@ class clientSaysRequest extends FormRequest {
 		return [
              'photo'=>'required|file|'.it()->image().'',
              'name'=>'required',
-             'titile'=>'required',
+             
              'description_ar'=>'required',
              'description_en'=>'required',
 		];
@@ -37,7 +37,7 @@ class clientSaysRequest extends FormRequest {
 		return [
              'photo'=>'required|file|'.it()->image().'',
              'name'=>'required',
-             'titile'=>'required',
+             
              'description_ar'=>'required',
              'description_en'=>'required',
 		];

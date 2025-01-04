@@ -3,6 +3,7 @@ namespace App\DataTables;
 use App\Models\Product;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
 // Auto DataTable By Baboon Script
 // Baboon Maker has been Created And Developed By [It V 1.6.8 | https://it.phpanonymous.com]
 // Copyright Reserved [It V 1.6.8 | https://it.phpanonymous.com]
@@ -19,7 +20,12 @@ class ProductsDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('actions', 'admin.products.buttons.actions')
-
+            ->editColumn('description_ar', function ($row) {
+				return Str::limit($row->description_ar, 50); // Truncate to 50 characters
+			})
+			->editColumn('description_en', function ($row) {
+				return Str::limit($row->description_en, 50); // Truncate to 50 characters
+			})
             ->addColumn('main_photo', '{!! view("admin.show_image",["image"=>$main_photo])->render() !!}')
 
             ->addColumn('photos', '<a href="{{ it()->url($photos) }}" target="_blank"><i class="fa fa-download fa-2x"></i></a>')

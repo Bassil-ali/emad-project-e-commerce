@@ -77,8 +77,8 @@
 
 					<select id="category_id" name="category_id" class="form-control select2" placeholder="{{trans('admin.category_id')}}" >
 
-    @foreach(App\Models\Category::pluck('name_ar','id') as $category_id)
-      <option value="{{ $category_id->id }}" {{ $blogs->category_id == $category_id->id?"selected":"" }} >{{ $category_id->name_ar }}</option>
+    @foreach(App\Models\Category::pluck('name_ar','id') as $id=>$name)
+      <option value="{{ $id }}" {{ $blogs->category_id == $id?"selected":"" }} >{{ $name }}</option>
     @endforeach
 </select>
 
@@ -107,30 +107,30 @@
 
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        <label for="description_en" class="control-label">{{trans('admin.description_en')}}</label>
-            <textarea id="description_en" class="form-control ckeditor" placeholder="{{trans('admin.description_en')}}"
-            name="description_en" >{{$blogs->description_en}}</textarea>
-    </div>
-</div>
-
-<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-    <div class="form-group">
         <label for="description_ar" class="control-label">{{trans('admin.description_ar')}}</label>
-            <textarea id="description_ar" class="form-control ckeditor" placeholder="{{trans('admin.description_ar')}}"
-            name="description_ar" >{{$blogs->description_en}}</textarea>
+        <textarea id="description_ar" class="form-control ckeditor" placeholder="{{trans('admin.description_ar')}}"
+        name="description_ar" >{{ $blogs->description_ar }}</textarea>
     </div>
 </div>
-
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
-        <label for="product_url" class=" control-label">{{trans('admin.product_url')}}</label>
-            <input type="text" id="product_url" name="product_url" value="{{old('product_url')}}" class="form-control" placeholder="{{trans('admin.product_url')}}" />
+        <label for="description_en" class="control-label">{{trans('admin.description_en')}}</label>
+        <textarea id="description_en" class="form-control ckeditor" placeholder="{{trans('admin.description_en')}}"
+        name="description_en" >{{ $blogs->description_en }}</textarea>
     </div>
 </div>
 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
         <label for="product_url" class="control-label">{{trans('admin.product_url')}}</label>
         <input type="text" id="product_url" name="product_url" value="{{ $blogs->product_url }}" class="form-control" placeholder="{{trans('admin.product_url')}}" />
+    </div>
+</div>
+
+</div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <div class="form-group">
+        <label for="product_url" class="control-label">{{trans('admin.created_date')}}</label>
+        <input type="datetime-local" id="created_date" name="created_date" value="{{ $blogs->created_date }}" class="form-control" placeholder="{{trans('admin.created_date')}}" />
     </div>
 </div>
 

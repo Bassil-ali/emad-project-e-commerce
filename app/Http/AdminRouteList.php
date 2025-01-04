@@ -30,5 +30,6 @@ return [
 	"beppartners",
 	"bepartners",
 	"pcpbs",
+	"vedios",
 
 ];

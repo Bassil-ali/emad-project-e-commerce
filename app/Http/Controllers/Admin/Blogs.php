@@ -60,6 +60,7 @@ class Blogs extends Controller
             public function store(BlogsRequest $request)
             {
                 $data = $request->except("_token", "_method");
+                //dd($data);
             	               if(request()->hasFile('photo')){
               $data['photo'] = it()->upload('photo','blogs');
               }else{

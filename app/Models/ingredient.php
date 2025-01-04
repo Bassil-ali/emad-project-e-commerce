@@ -23,17 +23,11 @@ protected $fillable = [
 		'updated_at',
 	];
 
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'product_ingredient');
-    }
-
  	/**
     * Static Boot method to delete or update or sort Data
     * @param void
     * @return void
     */
-  
    protected static function boot() {
       parent::boot();
       // if you disable constraints should by run this static method to Delete children data

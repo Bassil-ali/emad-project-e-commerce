@@ -17,10 +17,10 @@ class PartnersController extends Controller
 {
     public function index()
     {
-        $partner = BePartner::first();
+        $partner = BePartner::get();
         return view('partner',compact('partner'));
     }
-    public function bePartner()
+    public function bePartner($type)
     {
         $PartnerTypes = PartnerType::all(); // Fetch all partners
         return view('be-partner', compact('PartnerTypes'));
@@ -32,12 +32,12 @@ class PartnersController extends Controller
         $data = $request;
         $validatedData = Validator::make($request->all(), [
             'partner_type' => 'required',
-            'name' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:15',
-            'email_address' => 'required|email|max:255',
-            'business_name' => 'nullable|string|max:255',
+            'name' => 'required',
+            'phone_number' => 'required',
+            'email_address' => 'required',
+            'business_name' => 'nullable',
             'message' => 'required|string',
-            'file' => 'required'
+            'file' => ''
         ]);
         if ($validatedData->fails()) {
             // Return validation errors as JSON
@@ -51,8 +51,14 @@ class PartnersController extends Controller
 
      
      
-        // Send email to the manager
-        Mail::to('hr@emadbakeries.com')->send(new PartnerAdded($data->toArray()));
+      if ($request->partner_type === 'career') {
+        // Send email to career-related recipients
+        Mail::to(['hr@emadbakeries.com', 'info@emadbakeries.com'])->send(new PartnerAdded($data->toArray()));
+    } elseif ($request->partner_type === 'partner') {
+        // Send email to partner-related recipients
+        Mail::to(['info@emadbakeries.com', 'media@emadbakeries.com', 'bilal.abozid@emadbakeries.com'])->send(new PartnerAdded($data->toArray()));
+    }  
+    
         Partner::create($request->toArray());
         
         return response()->json(['success' => 'Partner information saved successfully!'], 200);

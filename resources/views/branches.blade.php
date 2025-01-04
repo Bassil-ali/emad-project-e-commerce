@@ -17,7 +17,7 @@
             data-aos="fade-up"
             data-aos-delay="100"
           >
-          <h2>{{ trans('admin.Branches') }}</h2>
+          <h2>{{ trans('admin.branches') }}</h2>
           <p>{{ trans('admin.Our Branches') }}</p>
           <span>
               {{ trans('admin.Emad Bakeries focuses on creating the highest standards in producing breads and pastries has been the simply') }}

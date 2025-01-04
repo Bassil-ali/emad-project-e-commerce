@@ -20,6 +20,18 @@ protected $fillable = [
 		'updated_at',
 	];
 
+   // Relationship with Blog model
+   public function blogs()
+   {
+       return $this->hasMany(Blog::class);
+   }
+
+   // Relationship with Product model (if applicable)
+   public function products()
+   {
+       return $this->hasMany(Product::class);
+   }
+
  	/**
     * Static Boot method to delete or update or sort Data
     * @param void

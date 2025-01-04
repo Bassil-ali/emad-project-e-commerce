@@ -439,7 +439,7 @@ with font-awesome or any other icon font library -->
       </a>
     </li>
     
-@if(admin()->user()->role("partnerstype_show"))
+<!-- @if(admin()->user()->role("partnerstype_show"))
 <li class="nav-item {{active_link('partnerstype','menu-open')}} ">
   <a href="#" class="nav-link {{active_link('partnerstype','active')}}">
     <i class="nav-icon fa fa-fist-raised"></i>
@@ -463,7 +463,7 @@ with font-awesome or any other icon font library -->
     </li>
   </ul>
 </li>
-@endif
+@endif -->
 
   </ul>
 </li>
@@ -621,6 +621,32 @@ with font-awesome or any other icon font library -->
     </li>
     <li class="nav-item">
       <a href="{{ aurl('pcpbs/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+
+@if(admin()->user()->role("vedios_show"))
+<li class="nav-item {{active_link('vedios','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('vedios','active')}}">
+    <i class="nav-icon fa fa-icons"></i>
+    <p>
+      {{trans('admin.vedios')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('vedios')}}" class="nav-link  {{active_link('vedios','active')}}">
+        <i class="fa fa-icons nav-icon"></i>
+        <p>{{trans('admin.vedios')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('vedios/create') }}" class="nav-link">
         <i class="fas fa-plus nav-icon"></i>
         <p>{{trans('admin.create')}} </p>
       </a>

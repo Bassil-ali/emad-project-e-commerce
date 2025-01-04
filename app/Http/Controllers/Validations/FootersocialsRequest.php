@@ -26,14 +26,14 @@ class FootersocialsRequest extends FormRequest {
 	protected function onCreate() {
 		return [
              'photo'=>'required|file',
-             'url'=>'string',
+             'url'=>'',
 		];
 	}
 
 	protected function onUpdate() {
 		return [
              'photo'=>'required|file',
-             'url'=>'string',
+             'url'=>'',
 		];
 	}
 
